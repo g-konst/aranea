@@ -114,12 +114,12 @@ DELETE /worker/worker-0
 - 🤝 Присоединиться к разработке.
 - 💸 Поддержать материально:
 
-[SberPay](https://bit.ly/4d7t8PY)
+[SberPay](https://bit.ly/4d7t8PY)  
 
-BTC: `bc1q2jzh8uxy7x7fnztmuepne4vth7ntargh39x4n3`
-ETH: `0xeA1b4C1d72Be6B5e828e6d58950b2A00Aaa97faD`
-TON: `UQAQm_merCLgE0-JvJAmX6nLIeNSVf5EyIWpCadWjnXJGzLl`
-USDT TRC20: `TYswHByP7yFUqJ7WMcEk2thihN4AMNhWDH`
+BTC: `bc1q2jzh8uxy7x7fnztmuepne4vth7ntargh39x4n3`  
+ETH: `0xeA1b4C1d72Be6B5e828e6d58950b2A00Aaa97faD`  
+TON: `UQAQm_merCLgE0-JvJAmX6nLIeNSVf5EyIWpCadWjnXJGzLl`  
+USDT TRC20: `TYswHByP7yFUqJ7WMcEk2thihN4AMNhWDH`  
 
 ## Лицензия
 

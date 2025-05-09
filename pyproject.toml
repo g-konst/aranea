@@ -1,0 +1,16 @@
+[project]
+name = "aranea"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "camoufox[geoip]>=0.4.11",
+    "fastapi>=0.115.12",
+    "grpcio>=1.71.0",
+    "grpcio-tools>=1.71.0",
+    "loguru>=0.7.3",
+    "psutil>=7.0.0",
+    "pydantic-settings>=2.9.1",
+    "uvicorn>=0.34.2",
+]

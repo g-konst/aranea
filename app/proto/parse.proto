@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package parser;
+
+service ParserWorker {
+  rpc Parse(ParseRequest) returns (ParseResponse);
+}
+
+service ParserManager {
+  rpc RegisterWorker(WorkerRegistration) returns (RegistrationResponse);
+  rpc ReportStatus(StatusReport) returns (StatusAck);
+}
+
+message WorkerRegistration {
+  string worker_id = 1;
+  string host = 2;
+  int32 port = 3;
+}
+
+message RegistrationResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+enum HealthCheckStatus {
+    OK = 0;
+    NOT_OK = 1;
+    UNKNOWN = 2;
+    ERROR = 3;
+}
+
+message StatusReport {
+  string worker_id = 1;
+  int32 port = 2;
+  HealthCheckStatus status = 3;
+  int32 active_pages = 4;
+  double cpu_usage = 5;
+  double memory_usage = 6;
+}
+
+message StatusAck {
+  bool received = 1;
+  string message = 2;
+}
+
+message ActionArgument {
+    string name = 1;
+    oneof value {
+        string string_value = 2;
+        int32 int_value = 3;
+        double double_value = 4;
+    }
+}
+
+message Action {
+    string func = 1;
+    repeated ActionArgument args = 2;
+}
+
+message ParseRequest {
+  string url = 1;
+  string proxy = 2;
+  int32 timeout = 3;
+  repeated Action actions = 4;
+  map<string, string> headers = 5;
+  string load = 7;
+  repeated string block = 8;
+}
+
+message ParseResponse {
+  int32 status = 1;
+  string content = 2;
+  string error = 3;
+  map<string, string> headers = 4;
+  repeated Cookie cookies = 5;
+}
+
+message Cookie {
+  string name = 1;
+  string value = 2;
+  string domain = 3;
+  string path = 4;
+  int64 expires = 5;
+  bool http_only = 6;
+  bool secure = 7;
+  string same_site = 8;
+}

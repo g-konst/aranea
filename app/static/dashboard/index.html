@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aranea Dashboard</title>
+        <link rel="stylesheet" href="/static/dashboard/css/main.css" />
+        <script src="https://cdn.jsdelivr.net/npm/vue@3.2.36/dist/vue.global.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <header>
+                <h1>Aranea Dashboard</h1>
+                <div class="actions">
+                    <button @click="spawnWorker" :disabled="isSpawning">
+                        {{ isSpawning ? 'Spawning...' : 'Spawn New Worker' }}
+                    </button>
+                </div>
+            </header>
+
+            <div class="stats-panel">
+                <div class="stat">
+                    <h3>Workers</h3>
+                    <span>{{ workers.length }}</span>
+                </div>
+                <div class="stat">
+                    <h3>Active</h3>
+                    <span>{{ activeWorkers }}</span>
+                </div>
+                <div class="stat">
+                    <h3>Average CPU</h3>
+                    <span>{{ averageCpu }}%</span>
+                </div>
+                <div class="stat">
+                    <h3>Average Memory</h3>
+                    <span>{{ averageMemory }}%</span>
+                </div>
+            </div>
+
+            <div class="worker-list">
+                <h2>Workers</h2>
+                <div v-if="loading" class="loading">Loading workers...</div>
+                <div v-else-if="workers.length === 0" class="empty-state">
+                    No workers available. Spawn a new worker to get started.
+                </div>
+                <div v-else class="worker-cards">
+                    <div v-for="worker in workers" :key="worker.id" class="worker-card">
+                        <div class="worker-header">
+                            <h3>{{ worker.id }}</h3>
+                            <div :class="'status-badge ' + getStatusClass(worker.status)">
+                                {{ getStatusText(worker.status) }}
+                            </div>
+                        </div>
+                        <div class="worker-details">
+                            <div class="detail">
+                                <span class="label">Host:</span>
+                                <span class="value">{{ worker.host }}</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Port:</span>
+                                <span class="value">{{ worker.port }}</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Active Pages:</span>
+                                <span class="value">{{ worker.active_pages }}</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">CPU:</span>
+                                <span class="value">{{ worker.cpu_usage.toFixed(1) }}%</span>
+                                <div class="progress-bar">
+                                    <div
+                                        class="progress"
+                                        :style="{width: worker.cpu_usage + '%', backgroundColor: getCpuColor(worker.cpu_usage)}"
+                                    ></div>
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Memory:</span>
+                                <span class="value">{{ worker.memory_usage.toFixed(1) }}%</span>
+                                <div class="progress-bar">
+                                    <div
+                                        class="progress"
+                                        :style="{width: worker.memory_usage + '%', backgroundColor: getMemoryColor(worker.memory_usage)}"
+                                    ></div>
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Last Report:</span>
+                                <span class="value">{{ formatDate(worker.last_report) }}</span>
+                            </div>
+                        </div>
+                        <div class="worker-actions">
+                            <button @click="terminateWorker(worker.id)" class="terminate-btn">Terminate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/static/dashboard/js/main.js"></script>
+    </body>
+</html>

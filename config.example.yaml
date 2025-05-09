@@ -1,0 +1,27 @@
+browser:
+  timeout: 30000
+  max_retries: 3
+  retry_delay: 1000
+  max_pages: 10
+  launch_timeout: 30000
+  close_timeout: 5000
+  humanize: true
+  headless: true
+  locale: "en-US"
+  block_webrtc: true
+  geoip: true
+
+logging:
+  level: "INFO"
+  format: "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
+  rotation: "1 day"
+  retention: "7 days"
+  compression: "zip"
+  enqueue: true
+  backtrace: true
+  diagnose: true
+  sink: "logs/app.log"
+
+server:
+  host: "0.0.0.0"
+  port: 8000

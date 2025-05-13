@@ -114,12 +114,19 @@ DELETE /worker/worker-0
 - 🤝 Присоединиться к разработке.
 - 💸 Поддержать материально:
 
-[SberPay](https://bit.ly/4d7t8PY)  
+### Быстрая оплата
 
-BTC: `bc1q2jzh8uxy7x7fnztmuepne4vth7ntargh39x4n3`  
-ETH: `0xeA1b4C1d72Be6B5e828e6d58950b2A00Aaa97faD`  
-TON: `UQAQm_merCLgE0-JvJAmX6nLIeNSVf5EyIWpCadWjnXJGzLl`  
-USDT TRC20: `TYswHByP7yFUqJ7WMcEk2thihN4AMNhWDH`  
+[![SberPay](https://img.shields.io/badge/SberPay-через_Сбербанк-green?style=for-the-badge&logo=sberbank)](https://bit.ly/4d7t8PY)
+
+### Криптовалюты
+
+| Валюта | Адрес |
+|--------|-------|
+| ![BTC](https://img.shields.io/badge/BTC-Bitcoin-orange?style=for-the-badge&logo=bitcoin&logoColor=white) | `bc1q2jzh8uxy7x7fnztmuepne4vth7ntargh39x4n3` |
+| ![ETH](https://img.shields.io/badge/ETH-Ethereum-5c6bc0?style=for-the-badge&logo=ethereum&logoColor=white) | `0xeA1b4C1d72Be6B5e828e6d58950b2A00Aaa97faD` |
+| ![TON](https://img.shields.io/badge/TON-Toncoin-0098ea?style=for-the-badge&logo=telegram&logoColor=white) | `UQAQm_merCLgE0-JvJAmX6nLIeNSVf5EyIWpCadWjnXJGzLl` |
+| ![USDT](https://img.shields.io/badge/USDT-TRC20-26a17b?style=for-the-badge&logo=tether&logoColor=white) | `TYswHByP7yFUqJ7WMcEk2thihN4AMNhWDH` |
+
 
 ## Лицензия
 

@@ -57,7 +57,7 @@ class Action(BaseModel):
 
 class ParseRequest(BaseModel):
     url: str
-    proxy: Optional[str] = ""
+    proxy: Optional[str] = None
     timeout: Optional[int] = 10000
     actions: Optional[list[Action]] = []
     headers: Optional[dict[str, str]] = {}
@@ -71,6 +71,7 @@ class ParseResponse(BaseModel):
     error: str
     headers: dict[str, str]
     cookies: list[dict]
+    url: str
 
 
 @app.get("/")
@@ -142,6 +143,7 @@ async def parse(request: ParseRequest) -> ParseResponse:
             for cookie in grpc_response.cookies
         ]
         return ParseResponse(
+            url=grpc_response.url,
             status=grpc_response.status,
             content=grpc_response.content,
             headers=grpc_response.headers,

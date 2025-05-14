@@ -221,6 +221,7 @@ class Worker:
                 error="",
                 headers=headers,
                 cookies=cookies,
+                url=page.url,
             )
 
         except PlaywrightTimeoutError as e:
@@ -231,6 +232,7 @@ class Worker:
                 error=str(e),
                 headers={},
                 cookies=[],
+                url=request.url,
             )
         except Exception as e:
             log.error(f"Exception: {e}")
@@ -240,6 +242,7 @@ class Worker:
                 error=str(e),
                 headers={},
                 cookies=[],
+                url=request.url,
             )
         finally:
             if page:

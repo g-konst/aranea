@@ -73,6 +73,7 @@ message ParseResponse {
   string error = 3;
   map<string, string> headers = 4;
   repeated Cookie cookies = 5;
+  string url = 6;
 }
 
 message Cookie {
